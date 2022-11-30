@@ -2,8 +2,9 @@ import { SubTitle } from "../../components/Titles";
 import { collection, getDocs, getDoc, doc } from 'firebase/firestore';
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from '../api/firebase';
+import { GetStaticProps, GetStaticPaths } from 'next'
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
     const colRef = collection(db, 'books');
     const snapshot = await getDocs(colRef);
 
@@ -21,9 +22,9 @@ export const getStaticPaths = async () => {
     }
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
     const id = context.params.id;
-    const docRef = doc(db, "books", id);
+    const docRef = doc(db, "books", id as string);
     const docSnap = await getDoc(docRef);
      
     return {

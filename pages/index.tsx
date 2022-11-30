@@ -18,7 +18,6 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-
 export default function Home() {
   return (
     <>

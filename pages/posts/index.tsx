@@ -1,4 +1,5 @@
 import { SubTitle } from '../../components/Titles';
+import * as React from 'react';
 import Head from 'next/head'; 
 import Link from "next/link";
 import { collection } from 'firebase/firestore';
@@ -26,7 +27,7 @@ const Posts = () => {
            return {
             ...doc.data(),
             id: doc.id,
-           } 
+           }
         });
       }
 
