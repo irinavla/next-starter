@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Title } from "./Titles";
+import Image from "next/image";
 import styled from "styled-components";
 
 const StyledNav = styled.nav`
@@ -27,7 +27,7 @@ const StyledContainer = styled.div`
 const Navbar = () => {
     return (
         <StyledContainer>
-            <Title>Posts List</Title>
+            <Image src="/avatar.png" alt="avatar" width={80} height={80} priority='true'/>
             <StyledNav>
                 <StyledLink href="/">home</StyledLink>
                 <StyledLink href="/about">about</StyledLink>

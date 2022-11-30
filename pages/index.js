@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head'; // adds metadata for a page
 import Image from 'next/image'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -21,6 +21,11 @@ const StyledLink = styled(Link)`
 
 export default function Home() {
   return (
+    <>
+    <Head>
+      <title>My App | Home</title>
+      <meta name="keywords" content="my app content"/>
+    </Head>
     <div>
       <SubTitle>Homepage</SubTitle>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quos possimus inventore maxime repellendus nostrum quasi ipsam, fuga temporibus maiores?</p>
@@ -28,5 +33,6 @@ export default function Home() {
 
       <StyledLink href="/posts">See posts</StyledLink>
     </div>
+    </>
   )
 }
