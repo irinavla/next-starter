@@ -27,7 +27,7 @@ const StyledContainer = styled.div`
 const Navbar = () => {
     return (
         <StyledContainer>
-            <Image src="/avatar.png" alt="avatar" width={80} height={80} priority='true'/>
+            <Image src="/avatar.png" alt="avatar" width={80} height={80} priority/>
             <StyledNav>
                 <StyledLink href="/">home</StyledLink>
                 <StyledLink href="/about">about</StyledLink>
