@@ -1,17 +1,19 @@
 import { SubTitle } from '../../components/Titles';
 import Head from 'next/head'; 
+import Link from "next/link";
 import { collection } from 'firebase/firestore';
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from '../api/firebase';
 import styled from 'styled-components';
 
 
-const StyledPost = styled.div`
+const StyledPost = styled(Link)`
     padding: 8px 16px;
     background: var(--background-muted);
     display: block;
     margin: 20px 10px;
     border-left: 8px solid #fff;
+    text-decoration: none;
 `;
 
 const Posts = () => {
@@ -20,7 +22,12 @@ const Posts = () => {
     let displayedBooks;
 
     if (books) {
-        displayedBooks = books.docs.map((doc) => doc.data());
+        displayedBooks = books.docs.map((doc) => {
+           return {
+            ...doc.data(),
+            id: doc.id,
+           } 
+        });
       }
 
     return (
@@ -33,12 +40,11 @@ const Posts = () => {
         <div>
         <SubTitle>Post list</SubTitle>
 
-        { displayedBooks && displayedBooks.map((book, index) => (
-            <StyledPost key={index}>
+        { displayedBooks && displayedBooks.map((book) => (
+            <StyledPost key={book.id} href={`/posts/${book.id}`}>
                 <div>{book.title}</div>
                 <div>{book.author}</div>
             </StyledPost>
-
         ))
     }  
         </div>
